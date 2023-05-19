@@ -1,0 +1,140 @@
+/* Color Variables */
+/* Font settings */
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  margin-top: 80px;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+  padding: 50px;
+}
+
+.calendar {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 2fr;
+  width: 100%;
+  gap: 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.calendar__today {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.calendar__today__title {
+  font-size: 24px;
+  padding: 10px;
+}
+.calendar__today__subtitle {
+  font-size: 24px;
+  padding: 10px;
+}
+.calendar__today img {
+  max-height: 300px;
+}
+.calendar__today__button {
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+  border: 0;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  line-height: 1.75rem; /* 28px */
+  padding: 1rem 1.25rem;
+  text-align: center;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+}
+.calendar__incoming {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+}
+.calendar__incoming__day {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 100%;
+  max-height: calc(35vh - 60px);
+  border-radius: 10px;
+}
+.calendar__incoming__date {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  font-size: 32px;
+  line-height: 32px;
+  color: black;
+}
+.calendar__incoming__photo {
+  padding: 10px;
+  padding-top: 50px;
+  max-height: 40%;
+}
+.calendar__incoming__title {
+  padding: 5px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.calendar__incoming__volume {
+  line-height: 16px;
+  font-size: 16px;
+  padding: 5px;
+  color: black;
+}
+.calendar__incoming__price {
+  padding: 5px;
+}
+
+.now {
+  font-size: 24px;
+  line-height: 24px;
+  padding: 5px;
+}
+
+.previous {
+  line-height: 10px;
+  font-size: 12px;
+  padding: 5px;
+}
+
+.price--buttons {
+  position: absolute;
+  right: -10px;
+  background-color: #cf245f;
+  background-image: linear-gradient(to bottom right, #fcd34d, #ef4444, #ec4899);
+  border: 0;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  line-height: 1.75rem; /* 28px */
+  padding: 1rem 1.25rem;
+  text-align: center;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
+}/*# sourceMappingURL=style2.css.map */
