@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Paper;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\PremiumProduct;
+use TCG\Voyager\Facades\Voyager;
 
 class PagesController extends Controller
 {
@@ -13,7 +15,8 @@ class PagesController extends Controller
         $products = Product::orderby('created_at', 'desc')->get();
         $premium_products = PremiumProduct::orderby('created_at', 'desc')->get();
         $brands = Brand::get();
-        return view('home', compact('products', 'premium_products', 'brands'));
+        $papers = Paper::get();
+        return view('home', compact('products', 'premium_products', 'brands', 'papers'));
     }
 
     public function product(Product $product) {

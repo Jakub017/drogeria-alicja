@@ -5,7 +5,7 @@
 <section class="offer">
     <p class="offer__header">Drogeria Alicja</p>
     <p class="offer__description">
-    Firma Handlowa "Alicja" powstała w 1993 roku. Specjalizuje się w sprzedaży produktów renomowanych marek.
+        Firma Handlowa "Alicja" powstała w 1993 roku. Specjalizuje się w sprzedaży produktów renomowanych marek.
     </p>
 </section>
 <div class="nine" id="produkty-premium">
@@ -74,30 +74,37 @@
 <div class="promotional-section">
     <h2>Najnowsze promocje w Drogeria Alicja</h2>
     <p>Sprawdź naszą gazetkę promocyjną i skorzystaj z niezwykłych ofert na kosmetyki.</p>
-    <a href="#" class="advices__button-gold">Zobacz gazetkę</a>
+    @foreach($papers as $paper)
+    @php
+    $new_file = json_decode($paper->file)[0];
+    $new_file_path = Voyager::image($new_file->download_link);
+    $new_file_name = $new_file->original_name;
+    @endphp
+    <a target="_blank" href="{{$new_file_path}}" class="advices__button-gold">Zobacz gazetkę</a>
+    @endforeach
 </div>
 
 
 
 <section class="brands">
     <p class="brands__text">Marki dostępne w naszej drogerii!</p>
-    
+
     <div style="width: 100%" class="splide" role="group" aria-label="Splide Basic HTML Example">
-  <div class="splide__track">
-		<ul class="splide__list">
-		@foreach($brands as $brand)
-        <li class="splide__slide">
-            <div class="brands__brand">
-                <a href="{{$brand->link}}">
-                    <img src="{{asset('storage/'.$brand->logo)}}" alt="" />
-                </a>
-            </div>
-        </li>
-        @endforeach
-		</ul>
-  </div>
-</div>
-    
+        <div class="splide__track">
+            <ul class="splide__list">
+                @foreach($brands as $brand)
+                <li class="splide__slide">
+                    <div class="brands__brand">
+                        <a href="{{$brand->link}}">
+                            <img src="{{asset('storage/'.$brand->logo)}}" alt="" />
+                        </a>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
 </section>
 
 @endsection
