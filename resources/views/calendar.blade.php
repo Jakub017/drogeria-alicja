@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="wrapper">
+<div class="wrapper-calendar">
     <div class="calendar">
         <div class="calendar__today">
             <p class="calendar__title">HITY DNIA!!</p>
