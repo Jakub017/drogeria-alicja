@@ -29,9 +29,15 @@
                  </li>
 
                  <li class="nav__menu-item">
-
-                     <a class="nav__menu-link" href="#">
+                     @foreach($papers as $paper)
+                     @php
+                     $new_file = json_decode($paper->file)[0];
+                     $new_file_path = Voyager::image($new_file->download_link);
+                     $new_file_name = $new_file->original_name;
+                     @endphp
+                     <a target="_blank" class="nav__menu-link" href="{{$new_file_path}}">
                          <img src="{{ asset('img/menu-icons/newsletter-icon.png') }}" />Gazetka</a>
+                     @endforeach
                  </li>
 
                  <li class="nav__menu-item">

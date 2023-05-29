@@ -33,7 +33,7 @@
                 $price_per_100ml = number_format($price_per_100ml, 2, '.', ' ');
                 @endphp
                 Cena za 100ml: {{$price_per_100ml}}zł<br />
-                Najniższa cena w ostatnich 30 dniach:
+                Najniższa cena w ostatnich 30 dniach: {{$premium_product->lowest_price}}zł<br />
             </p>
         </div>
     </div>
@@ -67,7 +67,7 @@
                 $product_price_per_100ml = number_format($product_price_per_100ml, 2, '.', ' ');
                 @endphp
                 Cena za 100ml: {{$product_price_per_100ml}}zł<br />
-                Najniższa cena w ostatnich 30 dniach:
+                Najniższa cena w ostatnich 30 dniach: {{$product->lowest_price}}zł<br />
             </p>
         </div>
     </div>

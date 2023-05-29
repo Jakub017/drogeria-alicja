@@ -22,21 +22,24 @@ class PagesController extends Controller
     }
 
     public function product(Product $product) {
-        return view('product', compact('product'));
+        $papers = Paper::get();
+        return view('product', compact('product', 'papers'));
     }
 
     public function premium_product(PremiumProduct $premium_product) {
-        return view('premium-product', compact('premium_product'));
+        $papers = Paper::get();
+        return view('premium-product', compact('premium_product', 'papers'));
     }
 
 
     public function calendar() {
+        $papers = Paper::get();
         $today = (new DateTime())->format('Y-m-d');
 
         $today_promotions = Promotion::where('date', '>=', $today)->orderby('date', 'asc')->get();
         $promotions = Promotion::where('date', '>=', $today)->orderby('date', 'asc')->offset(1)->limit(9)->get();
 
 
-        return view('calendar', compact('promotions', 'today_promotions'));
+        return view('calendar', compact('promotions', 'today_promotions', 'papers'));
     }
 }
