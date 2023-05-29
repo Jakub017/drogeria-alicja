@@ -12,21 +12,28 @@
     <h1>Produkty<span>Marka premium</span></h1>
 </div>
 <section class="products">
-    @foreach($products as $product)
+    @foreach($premium_products as $premium_product)
     <div class="products__tile">
-        <a href="{{route('product', $product)}}" class="products__header--gold">{{ $product->name }}</a>
-        <img src="{{asset('storage/'.$product->main_image)}}" alt="" />
+        <a href="{{route('premium.product', $premium_product)}}"
+            class="products__header--gold">{{ $premium_product->name }}</a>
+        <img src="{{asset('storage/'.$premium_product->main_image)}}" alt="" />
         <div class="products__buttons">
             <a class="products__buttons--gold" href="#">Nowość!</a>
             <a class="products__buttons--gold" href="#">Promocja!</a>
         </div>
         <div class="products__description">
             <p class="products__description__heading">
-                {{ $product->name }} - {{ $product->volume }}
+                {{ $premium_product->name }} - {{ $premium_product->volume }}ml
             </p>
             <p class="products__description__text">
-                Pojemność: {{ $product->volume }}<br />
-                Cena: {{ $product->price }}<br />
+                Pojemność: {{ $premium_product->volume }}ml<br />
+                Cena: {{ $premium_product->price }}zł<br />
+                @php
+                $price_per_100ml = $premium_product->price / $premium_product->volume * 100;
+                $price_per_100ml = number_format($price_per_100ml, 2, '.', ' ');
+                @endphp
+                Cena za 100ml: {{$price_per_100ml}}zł<br />
+                Najniższa cena w ostatnich 30 dniach:
             </p>
         </div>
     </div>
@@ -40,23 +47,27 @@
 </div>
 <section class="products">
 
-    @foreach($premium_products as $premium_product)
+    @foreach($products as $product)
     <div class="products__tile">
-        <a href="{{route('premium.product', $premium_product)}}"
-            class="products__header">{{ $premium_product->name }}</a>
-        <img src="{{asset('storage/'.$premium_product->main_image)}}" alt="" />
+        <a href="{{route('product', $product)}}" class="products__header">{{ $product->name }}</a>
+        <img src="{{asset('storage/'.$product->main_image)}}" alt="" />
         <div class="products__buttons">
             <a class="products__buttons--rose" href="#">Nowość!</a>
             <a class="products__buttons--rose" href="#">Promocja!</a>
         </div>
         <div class="products__description">
             <p class="products__description__heading">
-                {{ $premium_product->name }} - {{ $premium_product->volume }}
+                {{ $product->name }} - {{ $product->volume }}ml
             </p>
             <p class="products__description__text">
-                Pojemność: {{ $premium_product->volume }}<br />
-                Cena: {{ $premium_product->price }}<br />
-
+                Pojemność: {{ $product->volume }}ml<br />
+                Cena: {{ $product->price }}zł<br />
+                @php
+                $product_price_per_100ml = $product->price / $product->volume * 100;
+                $product_price_per_100ml = number_format($product_price_per_100ml, 2, '.', ' ');
+                @endphp
+                Cena za 100ml: {{$product_price_per_100ml}}zł<br />
+                Najniższa cena w ostatnich 30 dniach:
             </p>
         </div>
     </div>

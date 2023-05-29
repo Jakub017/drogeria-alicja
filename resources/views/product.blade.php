@@ -25,7 +25,14 @@
             <h1>{{ $product->name }}</h1>
         </div>
         <div class="price">
-            <span>{{ $product->price }} </span>
+            <span>{{ $product->price }}zł</span><br>
+            <p>Pojemność: {{$product->volume}}ml</p>
+            @php
+            $product_price_per_100ml = $product->price / $product->volume * 100;
+            $product_price_per_100ml = number_format($product_price_per_100ml, 2, '.', ' ');
+            @endphp
+            <p>Cena za 100ml: {{$product_price_per_100ml}}zł</p>
+            <p>Cena w ostatnich 30 dniach: {{ $product->lowest_price }}</p>
         </div>
 
         <div class="description">
